@@ -12,7 +12,6 @@
 package com.odeng.maven.crud.hibernate.dao;
 
 import com.odeng.maven.crud.hibernate.entitas.Mahasiswa;
-import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

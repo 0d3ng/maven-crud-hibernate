@@ -12,6 +12,7 @@
 package com.odeng.maven.crud.hibernate.entitas;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -21,13 +22,17 @@ import javax.persistence.Table;
  * @author od3ng
  */
 @Entity
-@Table
+@Table(name = "Mahasiswa")
 public class Mahasiswa implements Serializable {
 
     @Id
+    @Column(name = "NIM", nullable = false, length = 12, unique = true)
     private String nim;
+    @Column(name = "NAMA", nullable = false, length = 50)
     private String nama;
+    @Column(name = "IPK", nullable = false, length = 4)
     private float ipk;
+    @Column(name = "JURUSAN", nullable = false, length = 50)
     private String jurusan;
 
     public Mahasiswa() {

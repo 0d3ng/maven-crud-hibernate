@@ -35,9 +35,9 @@ public class MahasiswaServiceTest {
 
     @After
     public void tearDown() {
+        HibernateUtil.shutdown();
     }
 
-    @Ignore
     @Test
     public void testInsert() {
         Mahasiswa m = new Mahasiswa("075410200", "Singgih Kuncoro", 2.75F, "Teknik Mesin");
@@ -58,6 +58,7 @@ public class MahasiswaServiceTest {
         assertTrue(ms.delete(m));
     }
 
+    @Ignore
     @Test
     public void testGetMahasiswaByNim() {
         Mahasiswa mhs = ms.getMahasiswaByNim("075410200");
