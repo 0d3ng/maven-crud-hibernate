@@ -17,8 +17,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 
 /**
@@ -30,8 +30,8 @@ import javax.persistence.Temporal;
 public class Pengembalian implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence-generator")
-    @SequenceGenerator(name = "sequence-generator", sequenceName = "sequence_pengembalian", allocationSize = 10)
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "table-generator")
+    @TableGenerator(name = "table-generator",table = "table_identifier",pkColumnName = "table_name",valueColumnName = "pengembalian_id",allocationSize = 10)
     private long id;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date tanggalPengembalian;
