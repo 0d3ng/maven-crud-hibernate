@@ -33,7 +33,7 @@ private final Session session;
     public boolean save(Pengembalian o) {
         try {
             session.beginTransaction();
-            UUID id = (UUID) session.save(o);
+            String id = (String) session.save(o);
             session.getTransaction().commit();
             return id != null;
         } catch (Exception e) {
