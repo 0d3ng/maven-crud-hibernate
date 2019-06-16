@@ -13,6 +13,7 @@ package com.odeng.maven.crud.hibernate.dao;
 
 import com.odeng.maven.crud.hibernate.entitas.Pengembalian;
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.hibernate.Session;
@@ -32,9 +33,9 @@ private final Session session;
     public boolean save(Pengembalian o) {
         try {
             session.beginTransaction();
-            long id = (Long) session.save(o);
+            UUID id = (UUID) session.save(o);
             session.getTransaction().commit();
-            return id != 0;
+            return id != null;
         } catch (Exception e) {
             Logger.getLogger(MahasiswaImpl.class.getName()).log(Level.SEVERE, null, e);
             session.getTransaction().rollback();
