@@ -13,6 +13,10 @@ package com.odeng.maven.crud.hibernate.util;
 
 import com.odeng.maven.crud.hibernate.dao.MahasiswaDao;
 import com.odeng.maven.crud.hibernate.dao.MahasiswaImpl;
+import com.odeng.maven.crud.hibernate.dao.PeminjamanDao;
+import com.odeng.maven.crud.hibernate.dao.PeminjamanImpl;
+import com.odeng.maven.crud.hibernate.dao.PengembalianDao;
+import com.odeng.maven.crud.hibernate.dao.PengembalianDaoImpl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.hibernate.HibernateException;
@@ -29,6 +33,8 @@ public class HibernateUtil {
 
     private static final SessionFactory sessionFactory;
     private static MahasiswaDao mahasiswaDao;
+    private static PeminjamanDao peminjamanDao;
+    private static PengembalianDao pengembalianDao;
 
     static {
         try {
@@ -49,11 +55,25 @@ public class HibernateUtil {
         return mahasiswaDao;
     }
 
+    public static PeminjamanDao getPeminjamanDao() {
+        if (peminjamanDao == null) {
+            peminjamanDao = new PeminjamanImpl(getSessionFactory().openSession());
+        }
+        return peminjamanDao;
+    }
+
+    public static PengembalianDao getPengembalianDao() {
+        if (pengembalianDao == null) {
+            pengembalianDao = new PengembalianDaoImpl(getSessionFactory().openSession());
+        }
+        return pengembalianDao;
+    }
+
     private static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-    
-    public static void shutdown(){
+
+    public static void shutdown() {
         try {
             sessionFactory.close();
         } catch (HibernateException e) {

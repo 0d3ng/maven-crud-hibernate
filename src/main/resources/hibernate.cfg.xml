@@ -48,5 +48,7 @@ Contributor(s):
     <property name="hbm2ddl.auto">update</property>
     <property name="hibernate.connection.username">root</property>
     <mapping class="com.odeng.maven.crud.hibernate.entitas.Mahasiswa"/>
+    <mapping class="com.odeng.maven.crud.hibernate.entitas.Peminjaman"/>
+    <mapping class="com.odeng.maven.crud.hibernate.entitas.Pengembalian"/>
   </session-factory>
 </hibernate-configuration>
