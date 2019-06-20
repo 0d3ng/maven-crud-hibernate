@@ -40,7 +40,7 @@ public class MahasiswaServiceTest {
     @Test
     public void testInsert() {
         MahasiswaPK pK = new MahasiswaPK("075410099", "08587855xxxx");
-        Mahasiswa m = new Mahasiswa(pK.getNim(), pK.getNo_telf(), "Singgih Kuncoro", 2.75F, "Teknik Mesin");
+        Mahasiswa m = new Mahasiswa(pK, "Singgih Kuncoro", 2.75F, "Teknik Mesin");
         assertTrue(ms.insert(m));
     }
 

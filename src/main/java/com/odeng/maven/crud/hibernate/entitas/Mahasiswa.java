@@ -15,7 +15,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 /**
@@ -24,13 +23,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "mahasiswa")
-@IdClass(MahasiswaPK.class)
 public class Mahasiswa implements Serializable {
 
     @Id
-    private String nim;
-    @Id
-    private String no_telf;
+    private MahasiswaPK pK;
     @Column(name = "nama", nullable = false, length = 50)
     private String nama;
     @Column(name = "ipk", nullable = false, length = 4)
@@ -41,9 +37,8 @@ public class Mahasiswa implements Serializable {
     public Mahasiswa() {
     }
 
-    public Mahasiswa(String nim, String no_telf, String nama, float ipk, String jurusan) {
-        this.nim = nim;
-        this.no_telf = no_telf;
+    public Mahasiswa(MahasiswaPK pK, String nama, float ipk, String jurusan) {
+        this.pK = pK;
         this.nama = nama;
         this.ipk = ipk;
         this.jurusan = jurusan;
@@ -73,20 +68,12 @@ public class Mahasiswa implements Serializable {
         this.jurusan = jurusan;
     }
 
-    public String getNim() {
-        return nim;
+    public MahasiswaPK getpK() {
+        return pK;
     }
 
-    public void setNim(String nim) {
-        this.nim = nim;
-    }
-
-    public String getNo_telf() {
-        return no_telf;
-    }
-
-    public void setNo_telf(String no_telf) {
-        this.no_telf = no_telf;
+    public void setpK(MahasiswaPK pK) {
+        this.pK = pK;
     }
 
 }
