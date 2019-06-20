@@ -13,8 +13,8 @@ package com.odeng.maven.crud.hibernate.entitas;
 
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -22,35 +22,26 @@ import javax.persistence.Table;
  * @author od3ng
  */
 @Entity
-@Table(name = "Mahasiswa")
+@Table(name = "mahasiswa")
 public class Mahasiswa implements Serializable {
 
-    @Id
-    @Column(name = "NIM", nullable = false, length = 12, unique = true)
-    private String nim;
-    @Column(name = "NAMA", nullable = false, length = 50)
+    @EmbeddedId
+    private MahasiswaPK mhs_pk;
+    @Column(name = "nama", nullable = false, length = 50)
     private String nama;
-    @Column(name = "IPK", nullable = false, length = 4)
+    @Column(name = "ipk", nullable = false, length = 4)
     private float ipk;
-    @Column(name = "JURUSAN", nullable = false, length = 50)
+    @Column(name = "jurusan", nullable = false, length = 50)
     private String jurusan;
 
     public Mahasiswa() {
     }
 
-    public Mahasiswa(String nim, String nama, float ipk, String jurusan) {
-        this.nim = nim;
+    public Mahasiswa(MahasiswaPK mhs_pk, String nama, float ipk, String jurusan) {
+        this.mhs_pk = mhs_pk;
         this.nama = nama;
         this.ipk = ipk;
         this.jurusan = jurusan;
-    }
-
-    public String getNim() {
-        return nim;
-    }
-
-    public void setNim(String nim) {
-        this.nim = nim;
     }
 
     public String getNama() {
@@ -77,9 +68,12 @@ public class Mahasiswa implements Serializable {
         this.jurusan = jurusan;
     }
 
-    @Override
-    public String toString() {
-        return "Mahasiswa{" + "nim=" + nim + ", nama=" + nama + ", ipk=" + ipk + ", jurusan=" + jurusan + '}';
+    public MahasiswaPK getMhs_pk() {
+        return mhs_pk;
+    }
+
+    public void setMhs_pk(MahasiswaPK mhs_pk) {
+        this.mhs_pk = mhs_pk;
     }
 
 }

@@ -21,8 +21,6 @@ import com.odeng.maven.crud.hibernate.util.HibernateUtil;
  */
 public class App {
     public static void main(String[] args) {
-        MahasiswaDao mahasiswaDao = HibernateUtil.getMahasiswaDao();
-        Mahasiswa m = new Mahasiswa("075410200", "Singgih Kuncoro", 2.75F, "Teknik Mesin");
-        mahasiswaDao.insert(m);
+        //add code here
     }
 }

@@ -34,9 +34,9 @@ public class MahasiswaImpl implements MahasiswaDao {
     public boolean insert(Mahasiswa m) {
         try {
             session.beginTransaction();
-            String nim = (String) session.save(m);
+            session.save(m);
             session.getTransaction().commit();
-            return nim != null;
+            return true;
         } catch (Exception e) {
             Logger.getLogger(MahasiswaImpl.class.getName()).log(Level.SEVERE, null, e);
             session.getTransaction().rollback();
