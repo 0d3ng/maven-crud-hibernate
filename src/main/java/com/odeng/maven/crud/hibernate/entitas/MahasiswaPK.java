@@ -13,14 +13,13 @@ package com.odeng.maven.crud.hibernate.entitas;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Embeddable;
 
 /**
  *
  * @author od3ng
  */
-@Embeddable
 public class MahasiswaPK implements Serializable {
+
     private String nim;
     private String no_telf;
 
@@ -76,5 +75,5 @@ public class MahasiswaPK implements Serializable {
         }
         return true;
     }
-    
+
 }

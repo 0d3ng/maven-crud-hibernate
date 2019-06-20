@@ -3,7 +3,7 @@
 
  * Copyright (c) 2019
  * All rights reserved.
- * Written by od3ng created on Jun 16, 2019 9:06:47 AM
+ * Written by od3ng created on Jun 20, 2019 3:42:27 PM
  * Blog    : sinaungoding.com
  * Email   : lepengdados@gmail.com
  * Github  : 0d3ng
@@ -11,40 +11,40 @@
  */
 package com.odeng.maven.crud.hibernate.service;
 
-import com.odeng.maven.crud.hibernate.dao.PengembalianDao;
-import com.odeng.maven.crud.hibernate.entitas.Pengembalian;
+import com.odeng.maven.crud.hibernate.dao.PenerbitDao;
+import com.odeng.maven.crud.hibernate.entitas.Penerbit;
 import java.util.List;
 
 /**
  *
  * @author od3ng
  */
-public class PengembalianServiceImpl implements PengembalianService {
+public class PenerbitServiceImpl implements PenerbitService{
 
-    private final PengembalianDao dao;
+    private final PenerbitDao dao;
 
-    public PengembalianServiceImpl(PengembalianDao dao) {
+    public PenerbitServiceImpl(PenerbitDao dao) {
         this.dao = dao;
     }
 
     @Override
-    public boolean save(Pengembalian o) {
+    public boolean save(Penerbit o) {
         return dao.save(o);
     }
 
     @Override
-    public boolean update(Pengembalian o) {
+    public boolean update(Penerbit o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(Pengembalian o) {
+    public boolean delete(Penerbit o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Pengembalian> getAll() {
+    public List<Penerbit> getAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
 }

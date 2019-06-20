@@ -14,12 +14,10 @@ package com.odeng.maven.crud.hibernate.service;
 import com.odeng.maven.crud.hibernate.entitas.Mahasiswa;
 import com.odeng.maven.crud.hibernate.entitas.MahasiswaPK;
 import com.odeng.maven.crud.hibernate.util.HibernateUtil;
-import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 
 /**
  *
@@ -41,8 +39,8 @@ public class MahasiswaServiceTest {
 
     @Test
     public void testInsert() {
-        MahasiswaPK pK = new MahasiswaPK("", "08587855xxxx");
-        Mahasiswa m = new Mahasiswa(pK, "Singgih Kuncoro", 2.75F, "Teknik Mesin");
+        MahasiswaPK pK = new MahasiswaPK("075410099", "08587855xxxx");
+        Mahasiswa m = new Mahasiswa(pK.getNim(), pK.getNo_telf(), "Singgih Kuncoro", 2.75F, "Teknik Mesin");
         assertTrue(ms.insert(m));
     }
 

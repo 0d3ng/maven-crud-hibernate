@@ -50,5 +50,8 @@ Contributor(s):
     <mapping class="com.odeng.maven.crud.hibernate.entitas.Mahasiswa"/>
     <mapping class="com.odeng.maven.crud.hibernate.entitas.Peminjaman"/>
     <mapping class="com.odeng.maven.crud.hibernate.entitas.Pengembalian"/>
+    <mapping class="com.odeng.maven.crud.hibernate.entitas.Buku"/>
+    <mapping class="com.odeng.maven.crud.hibernate.entitas.Penerbit"/>
+    <mapping class="com.odeng.maven.crud.hibernate.entitas.Penulis"/>
   </session-factory>
 </hibernate-configuration>

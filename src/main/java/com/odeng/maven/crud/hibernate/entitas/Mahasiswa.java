@@ -13,8 +13,9 @@ package com.odeng.maven.crud.hibernate.entitas;
 
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 /**
@@ -23,10 +24,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "mahasiswa")
+@IdClass(MahasiswaPK.class)
 public class Mahasiswa implements Serializable {
 
-    @EmbeddedId
-    private MahasiswaPK mhs_pk;
+    @Id
+    private String nim;
+    @Id
+    private String no_telf;
     @Column(name = "nama", nullable = false, length = 50)
     private String nama;
     @Column(name = "ipk", nullable = false, length = 4)
@@ -37,8 +41,9 @@ public class Mahasiswa implements Serializable {
     public Mahasiswa() {
     }
 
-    public Mahasiswa(MahasiswaPK mhs_pk, String nama, float ipk, String jurusan) {
-        this.mhs_pk = mhs_pk;
+    public Mahasiswa(String nim, String no_telf, String nama, float ipk, String jurusan) {
+        this.nim = nim;
+        this.no_telf = no_telf;
         this.nama = nama;
         this.ipk = ipk;
         this.jurusan = jurusan;
@@ -68,12 +73,20 @@ public class Mahasiswa implements Serializable {
         this.jurusan = jurusan;
     }
 
-    public MahasiswaPK getMhs_pk() {
-        return mhs_pk;
+    public String getNim() {
+        return nim;
     }
 
-    public void setMhs_pk(MahasiswaPK mhs_pk) {
-        this.mhs_pk = mhs_pk;
+    public void setNim(String nim) {
+        this.nim = nim;
+    }
+
+    public String getNo_telf() {
+        return no_telf;
+    }
+
+    public void setNo_telf(String no_telf) {
+        this.no_telf = no_telf;
     }
 
 }
