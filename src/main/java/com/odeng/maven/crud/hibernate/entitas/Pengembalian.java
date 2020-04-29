@@ -11,16 +11,11 @@
  */
 package com.odeng.maven.crud.hibernate.entitas;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.UUID;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -31,26 +26,24 @@ import org.hibernate.annotations.GenericGenerator;
 public class Pengembalian implements Serializable {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(columnDefinition = "VARCHAR(40)")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date tanggalPengembalian;
 
     public Pengembalian() {
     }
 
-    public Pengembalian(String id, Date tanggalPengembalian) {
+    public Pengembalian(Long id, Date tanggalPengembalian) {
         this.id = id;
         this.tanggalPengembalian = tanggalPengembalian;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -13,25 +13,27 @@ package com.odeng.maven.crud.hibernate.service;
 
 import com.odeng.maven.crud.hibernate.entitas.Pengembalian;
 import com.odeng.maven.crud.hibernate.util.HibernateUtil;
+
 import java.util.Date;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /**
- *
  * @author od3ng
  */
 public class PengembalianServiceImplTest {
-    
+
     PengembalianService service;
-    
+
     @Before
     public void setUp() {
-        service=new PengembalianServiceImpl(HibernateUtil.getPengembalianDao());
+        service = new PengembalianServiceImpl(HibernateUtil.getPengembalianDao());
     }
-    
+
     @After
     public void tearDown() {
         HibernateUtil.shutdown();
@@ -39,9 +41,11 @@ public class PengembalianServiceImplTest {
 
     @Test
     public void testSave() {
-        Pengembalian p = new Pengembalian();
-        p.setTanggalPengembalian(new Date());
-        assertTrue(service.save(p));
+        for (int i = 0; i < 5; i++) {
+            Pengembalian p = new Pengembalian();
+            p.setTanggalPengembalian(new Date());
+            assertTrue(service.save(p));
+        }
     }
-    
+
 }

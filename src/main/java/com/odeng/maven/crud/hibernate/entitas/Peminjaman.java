@@ -11,24 +11,23 @@
  */
 package com.odeng.maven.crud.hibernate.entitas;
 
+import com.odeng.maven.crud.hibernate.util.Identifiable;
+import org.hibernate.annotations.GenericGenerator;
+
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 /**
- *
  * @author od3ng
  */
 @Entity
 @Table
-public class Peminjaman implements Serializable {
+public class Peminjaman implements Identifiable<Long> {
 
     @Id
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Temporal(TemporalType.TIMESTAMP)
     private Date tanggal_transaksi;
 
@@ -40,11 +39,11 @@ public class Peminjaman implements Serializable {
         this.tanggal_transaksi = tanggal_transaksi;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

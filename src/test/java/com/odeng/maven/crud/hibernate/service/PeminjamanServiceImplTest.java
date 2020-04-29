@@ -42,9 +42,11 @@ public class PeminjamanServiceImplTest {
 
     @Test
     public void testSave() {
-        Peminjaman p = new Peminjaman();
-        p.setTanggal_transaksi(new Date());
-        assertTrue(service.save(p));
+        for (int i = 0; i < 10; i++) {
+            Peminjaman p = new Peminjaman();
+            p.setTanggal_transaksi(new Date());
+            assertTrue(service.save(p));
+        }
     }
 
 }

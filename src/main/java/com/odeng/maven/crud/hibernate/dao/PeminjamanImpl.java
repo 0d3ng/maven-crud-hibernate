@@ -40,7 +40,7 @@ public class PeminjamanImpl implements PeminjamanDao {
             Logger.getLogger(MahasiswaImpl.class.getName()).log(Level.SEVERE, null, e);
             session.getTransaction().rollback();
         } finally {
-            session.close();
+//            session.close();
         }
         return false;
     }

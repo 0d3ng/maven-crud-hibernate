@@ -12,6 +12,8 @@
 package com.odeng.maven.crud.hibernate.dao;
 
 import com.odeng.maven.crud.hibernate.entitas.Pengembalian;
+
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -33,14 +35,14 @@ private final Session session;
     public boolean save(Pengembalian o) {
         try {
             session.beginTransaction();
-            String id = (String) session.save(o);
+            Long id = (Long) session.save(o);
             session.getTransaction().commit();
             return id != null;
         } catch (Exception e) {
             Logger.getLogger(MahasiswaImpl.class.getName()).log(Level.SEVERE, null, e);
             session.getTransaction().rollback();
         } finally {
-            session.close();
+//            session.close();
         }
         return false;
     }
